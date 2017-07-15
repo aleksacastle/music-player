@@ -13,7 +13,6 @@ pipelines:
           - bundle install
           - rake db:setup
           - mv config/database.yml.example config/database.yml
-          - rake db:test:prepare
           - rubocop
           - rspec
         services:
