@@ -1,4 +1,4 @@
-class SongsController < ApplicationRecord
+class SongsController < BaseController
   def new
     @song = Song.new
   end
