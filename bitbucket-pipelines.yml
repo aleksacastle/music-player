@@ -11,8 +11,8 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
           - bundle install
-          - cp config/database.yml.example config/database.yml
           - rake db:setup
+          - mv config/database.yml.example config/database.yml
           - rake db:test:prepare
           - rubocop
           - rspec
