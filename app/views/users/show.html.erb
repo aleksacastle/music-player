@@ -1,0 +1,12 @@
+<div class="container">
+  <center><h1>My Profile</h1></center>
+  <p>Email: <%= @user.email %></p>
+  <p>Nickname: <%= @user.nick_name %></p>
+  <p>Firstname: <%= @user.first_name %></p>
+  <p>Lastname: <%= @user.last_name %></p>
+  <% if current_user.avatar.url.present? %>
+  <p><%= image_tag(current_user.avatar.url) %></p>
+  <% end %>
+  <%= link_to "Edit Info",  edit_user_path, class: "btn btn-primary" %>
+</div>
+
