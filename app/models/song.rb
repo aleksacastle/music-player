@@ -16,9 +16,9 @@
 class Song < ApplicationRecord
   mount_uploader :file, SongUploader
 
-  has_and_belongs_to_many :genres
+  has_and_belongs_to_many :genres, optional: true
   has_and_belongs_to_many :playlist
-  belongs_to :album
+  belongs_to :album, optional: true
 
   validates :title, :artist, :file, presence: true
   # validates :file, file_size: { less_than: 10.megabytes },
