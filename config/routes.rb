@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
+    root "base#index"
+    resources :base
     resources :user
   end
   resources :users

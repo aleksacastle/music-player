@@ -1,0 +1,25 @@
+/ navigation styled for Bootstrap 3.0
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'Ruby Rouges Admin', admin_root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        == render 'layouts/admin-partials/navigation_links'
+      ul.nav.navbar-nav.navbar-right
+        -if admin_signed_in?
+          li
+            p.navbar-text
+              =current_admin.email
+          li
+            =link_to 'Log out', destroy_admin_session_path, method: :delete
+        -else
+          li
+            =link_to 'Log in', new_admin_session_path
+          li
+            =link_to 'Sign up', new_admin_registration_path

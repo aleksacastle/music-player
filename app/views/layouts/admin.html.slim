@@ -5,13 +5,12 @@ html
     title
       = content_for?(:title) ? yield(:title) : 'Ruby Rogues'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Ruby Rogues'}"
-    == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => 'reload'
+    == stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track' => 'reload'
     == javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     == csrf_meta_tags
   body
     header
-      == render 'layouts/navigation'
-    main[role="main"]
-      == render 'layouts/messages'
-      .container-fluid
-        == yield
+      = render 'layouts/admin-partials/navigation'
+    .container-fluid
+      = render 'layouts/admin-partials/messages'
+      = yield
