@@ -1,11 +1,14 @@
 class AlbumsController < BaseController
+  def show
+    @album = authorize Album.find(params[:id])
+  end
+
   def new
-    @album = Album.new
+    @album = authorize Album.new
   end
 
   def create
-    @album = Album.new(album_params)
-    if current_user.role = "artist"
+    @album = authorize Album.new(album_params)
       if @album.save
         redirect_to @album, notice: "Album was successfully created."
       else
@@ -14,7 +17,6 @@ class AlbumsController < BaseController
     else
       redirect_to @album, notice: "Just artist can create albums."
     end
-  end
 
   def update
     if @album.update(album_params)

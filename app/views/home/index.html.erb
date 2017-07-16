@@ -1,3 +1,3 @@
-<% if policy(@album).create? %>
-  <%= link_to "Create album", new_album_path(@album) %>
+<% if policy(:album).create? %>
+  <%= link_to "Create album", new_album_path(:album) %>
 <% end %>
