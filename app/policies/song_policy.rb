@@ -1,12 +1,17 @@
-class Song
-  class CreatePolicy
-    attr_reader :current_user
+class SongPolicy < ApplicationPolicy
+  def new?
+    user.artist?
+  end
 
-    def initialize(current_user)
-      @current_user = current_user
-    end
-    def allowed?
-      current_user.artist?
-    end
+  def create?
+    user.artist?
+  end
+
+  def show?
+    user
+  end
+
+  def destroy?
+    user.artist?
   end
 end
