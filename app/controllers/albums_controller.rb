@@ -9,13 +9,13 @@ class AlbumsController < BaseController
 
   def create
     @album = authorize Album.new(album_params)
-      if @album.save
-        redirect_to @album, notice: "Album was successfully created."
-      else
-        render :new
-      end
+    if @album.save
+      redirect_to @album, notice: "Album was successfully created."
     else
-      redirect_to @album, notice: "Just artist can create albums."
+      render :new
+    end
+    else
+    redirect_to @album, notice: "Just artist can create albums."
     end
 
   def update

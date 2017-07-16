@@ -29,7 +29,7 @@ gem "slim-rails"
 gem "carrierwave", "~> 1.0"
 gem "mini_magick"
 gem "file_validators"
-gem 'html2slim', '~> 0.2.0'
+gem "html2slim", "~> 0.2.0"
 
 ######Authorizacion and Authentication######
 gem "devise"
