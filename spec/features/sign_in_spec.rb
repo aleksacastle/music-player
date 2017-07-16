@@ -12,4 +12,14 @@ feature "Sign in", :devise do
     signin(user.email, user.password)
     expect(page).to have_content "Signed in successfully"
   end
+
+  scenario "user cannot sign in with invalid email" do
+    signin("invalid@email.com", user.password)
+    expect(page).to have_content "Invalid Email or password"
+  end
+
+  scenario "user cannot sign in with invalid password" do
+    signin(user.email, "password")
+    expect(page).to have_content "Invalid Email or password"
+  end
 end
