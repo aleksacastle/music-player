@@ -2,8 +2,7 @@ table.table.table-bordered
   thead
     th Id
     th Email
-    th First name
-    th Last name
+    th Full name
     th Nick
     th Role
     th Last sign in at
@@ -13,9 +12,8 @@ table.table.table-bordered
       tr
         td=user.id
         td
-          =link_to user.email, admins_user_path(user)
-        td=user.first_name
-        td=user.last_name
+          =link_to user.email, admins_user_path(user)  
+        td=full_name(user.first_name, user.last_name)
         td=user.nick_name
         td=user.role
         td=user.last_sign_in_at

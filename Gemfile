@@ -28,6 +28,7 @@ gem "simple_form"
 gem "slim-rails"
 gem "carrierwave", "~> 1.0"
 gem "mini_magick"
+gem "rmagick"
 gem "file_validators"
 
 ######Authorizacion and Authentication######

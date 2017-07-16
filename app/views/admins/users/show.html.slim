@@ -1,0 +1,28 @@
+.container
+  .row
+    .panel.panel-default
+      .panel-body
+        .col-md-2
+          -if @user.avatar.url.present?
+            =image_tag @user.avatar.url, class: "img-thumbnail"
+        .col-xs-6
+          ul.nav.user-description
+            li 
+              b Email: &nbsp;
+              =@user.email
+            li 
+              b First name: &nbsp;
+              =@user.first_name
+            li 
+              b Last name: &nbsp;
+              =@user.last_name
+            li 
+              b Nick name: &nbsp;
+              =@user.nick_name
+            li
+              b Remember created at: &nbsp;
+              =@user.remember_created_at
+            li
+              b Sign in count: &nbsp;
+              =@user.sign_in_count
+              

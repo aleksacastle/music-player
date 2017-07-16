@@ -1,0 +1,27 @@
+=simple_form_for([:admins, @user]) do |f|
+  .form-group
+    =f.input :email, placeholder: "Email", input_html: { class: "form-control" }
+  .form-group
+    =f.input :first_name, placeholder: "First name", input_html: { class: "form-control" }
+  .form-group
+    =f.input :last_name, placeholder: "Last name", input_html: { class: "form-control" }
+  .form-group
+    =f.input :nick_name, placeholder: "Nick name", input_html: { class: "form-control" }
+  .form-group
+    =f.input :role, collection: User.roles.keys, include_blank: false, input_html: { class: "form-control" }
+  .form-group
+    p 
+      b Avatar
+    -if @user.avatar.url.present?
+      =image_tag @user.avatar.url(:thumb), class: "img-thumbnail"
+  .form-group
+    =f.input :avatar, as: :file, label: false
+  .form-group
+    .btn-group role="group" aria-label="actions"
+      =f.submit "Edit", class: "btn btn-primary"
+      =link_to "Edit password", edit_user_registration_path, type: "button", class: "btn btn-warning"
+      =link_to "Back", admins_users_path, type: "button", class: "btn btn-success"
+  
+   
+  
+    
