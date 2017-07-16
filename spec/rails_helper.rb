@@ -60,6 +60,13 @@ RSpec.configure do |config|
   # Shoulda Matchers config
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+
+  # Devise test helpets
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+
+  # Test devise with capybara
+  config.include Warden::Test::Helpers
 end
 
 Shoulda::Matchers.configure do |config|
