@@ -5,18 +5,22 @@
         h3.panel-title Sign up
       .panel-body
         =simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          
+
           = f.error_notification
-          
+
           .form-group
             =f.input :email, required: true, autofocus: true, label: false, placeholder: "Email", input_html: { class: "form-control" }
-              
+
           .form-group
             =f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false, placeholder: "Password", input_html: { class: "form-control" }
-                  
+
           .form-group
             =f.input :password_confirmation, label: false, placeholder: "Password confirmation", input_html: { class: "form-control" }
-          
+
+          .form-group
+            =label_tag "as artist"
+            =check_box_tag "user[artist]"
+
           .form-group
             .btn-group role="group" aria-label="button-group"
               =f.button :submit, 'Sign Up', class: "btn btn-primary"
