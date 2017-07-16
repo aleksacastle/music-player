@@ -14,5 +14,5 @@ class Playlist < ApplicationRecord
   has_and_belongs_to_many :songs
   has_many :genres, through: :songs
   belongs_to :user
-  has_many :pictures, as: :imageable
+  has_one :picture, as: :imageable
 end
