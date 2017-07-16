@@ -1,22 +1,23 @@
 class AlbumsController < BaseController
-  def show
-    @album = authorize Album.find(params[:id])
+  before_action :find_user, except: %i[:new :create]
+  before_action :set_album, only: %i[:show :edit :update :destroy]
+
+  def index
+    @albums = current_user.albums
   end
 
   def new
-    @album = authorize Album.new
+    @album = Album.new
   end
 
   def create
-    @album = authorize Album.new(album_params)
+    @album = Album.new(album_params)
     if @album.save
       redirect_to @album, notice: "Album was successfully created."
     else
       render :new
     end
-    else
-    redirect_to @album, notice: "Just artist can create albums."
-    end
+  end
 
   def update
     if @album.update(album_params)
@@ -32,7 +33,14 @@ class AlbumsController < BaseController
   end
 
   private
+    def set_album
+      @album = Album.find(params[:id])
+    end
     def album_params
-      params.require(:album).permit(:title, :file_cover, :user_id)
+      params.require(:album).permit(:title, :file_cover).merge(current_user: :user_id)
+    end
+
+    def find_user
+      @user = User.find(params[:id])
     end
 end
