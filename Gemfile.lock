@@ -218,6 +218,11 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hpricot (0.8.6)
+    hpricot (0.8.6-i386-mswin32)
+    hpricot (0.8.6-java)
+    html2slim (0.2.0)
+      hpricot
     i18n (0.8.6)
     inflecto (0.0.2)
     interception (0.5)
@@ -514,6 +519,7 @@ DEPENDENCIES
   guard-bundler
   guard-rails
   guard-rspec
+  html2slim (~> 0.2.0)
   jbuilder (~> 2.5)
   jquery-rails
   launchy
