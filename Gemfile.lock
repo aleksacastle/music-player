@@ -69,6 +69,9 @@ GEM
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
+    bcrypt (3.1.11-java)
+    bcrypt (3.1.11-x64-mingw32)
+    bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -127,6 +130,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    concurrent-ruby (1.0.5-java)
     database_cleaner (1.6.1)
     debug_inspector (0.0.3)
     declarative (0.0.9)
@@ -184,6 +188,9 @@ GEM
     faker (1.8.4)
       i18n (~> 0.5)
     ffi (1.9.18)
+    ffi (1.9.18-java)
+    ffi (1.9.18-x64-mingw32)
+    ffi (1.9.18-x86-mingw32)
     file_validators (2.1.0)
       activemodel (>= 3.0)
       mime-types (>= 1.0)
@@ -223,6 +230,9 @@ GEM
       thor (>= 0.14, < 2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    launchy (2.4.3-java)
+      addressable (~> 2.3)
+      spoon (~> 0.0.1)
     libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -246,7 +256,13 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
     nio4r (2.1.0)
+    nio4r (2.1.0-java)
     nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.0-java)
+    nokogiri (1.8.0-x64-mingw32)
+      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.0-x86-mingw32)
       mini_portile2 (~> 2.2.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
@@ -256,6 +272,8 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.21.0)
+    pg (0.21.0-x64-mingw32)
+    pg (0.21.0-x86-mingw32)
     pipetree (0.1.1)
     poltergeist (1.15.0)
       capybara (~> 2.1)
@@ -266,6 +284,11 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry (0.10.4-java)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+      spoon (~> 0.0)
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
@@ -276,8 +299,12 @@ GEM
       pry
     public_suffix (2.0.5)
     puma (3.9.1)
+    puma (3.9.1-java)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
+    pundit-matchers (1.3.0)
+      pundit (~> 1.1, >= 1.1.0)
+      rspec-rails (>= 3.0.0)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -386,6 +413,8 @@ GEM
       railties (>= 3.1)
       slim (~> 3.0)
     slop (3.6.0)
+    spoon (0.0.6)
+      ffi
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-commands-rspec (1.0.4)
@@ -409,6 +438,7 @@ GEM
       ref
     thor (0.19.4)
     thread_safe (0.3.6)
+    thread_safe (0.3.6-java)
     tilt (2.0.7)
     trailblazer (2.0.6)
       declarative
@@ -430,6 +460,8 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2017.2)
+      tzinfo (>= 1.0.0)
     uber (0.1.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
@@ -443,12 +475,18 @@ GEM
       railties (>= 5.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
+    websocket-driver (0.6.5-java)
+      websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
+  java
   ruby
+  x64-mingw32
+  x86-mingw32
+  x86-mswin32
 
 DEPENDENCIES
   annotate
@@ -489,6 +527,7 @@ DEPENDENCIES
   pry-rescue
   puma (~> 3.7)
   pundit
+  pundit-matchers (~> 1.3.0)
   rails (~> 5.1.2)
   rails_layout
   rb-fchange
