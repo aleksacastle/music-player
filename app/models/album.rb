@@ -14,4 +14,5 @@ class Album < ApplicationRecord
   has_many :songs, dependent: :destroy
 
   belongs_to :user
+  has_many :pictures, as: :imageable
 end
