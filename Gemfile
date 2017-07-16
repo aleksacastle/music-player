@@ -74,7 +74,7 @@ group :development, :test do
   gem "faker"
   gem "rspec-rails"
   gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git", branch: "rails-5"
-  gem 'pundit-matchers', '~> 1.3.0'
+  gem "pundit-matchers", "~> 1.3.0"
   gem "rubocop", require: false
   gem "rubocop-rails"
   gem "launchy"
