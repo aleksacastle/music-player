@@ -1,12 +1,12 @@
 class Picture < ApplicationRecord
-  mount_uploader :picture, PictureUploader
-  belongs_to :imageable, polymorphic: true
+  mount_uploader :file, PictureUploader
+  belongs_to :imageable, polymorphic: true, optional: true
 
-  validates_processing_of :picture
-  validate :picture_size_validation
+  validates_processing_of :file
+  validate :file_size_validation
 
   private
-    def picture_size_validation
-      errors[:picture] << "should be less than 500KB" if picture.size > 0.5.megabytes
+    def file_size_validation
+      errors[:file] << "should be less than 500KB" if file.size > 0.5.megabytes
     end
 end
