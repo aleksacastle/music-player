@@ -1,19 +1,24 @@
 class AlbumsController < BaseController
-  before_action :find_user, except: %i[:new :create]
+  before_action :find_user, only: %i[:index ]
   before_action :set_album, only: %i[:show :edit :update :destroy]
 
   def index
-    @albums = current_user.albums
+    @albums = Album.all
   end
 
   def new
     @album = Album.new
+    # authorize @album
   end
 
   def create
     @album = Album.new(album_params)
+    authorize @album
+
     if @album.save
-      redirect_to @album, notice: "Album was successfully created."
+      binding.pry
+      redirect_to album_path(Album.last.id),
+      notice: "Album was successfully created."
     else
       render :new
     end
@@ -37,7 +42,7 @@ class AlbumsController < BaseController
       @album = Album.find(params[:id])
     end
     def album_params
-      params.require(:album).permit(:title, :file_cover).merge(current_user: :user_id)
+      params.require(:album).permit(:title, :file_cover).merge(user_id: :user_id)
     end
 
     def find_user
