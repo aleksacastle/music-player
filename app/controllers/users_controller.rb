@@ -1,5 +1,5 @@
 class UsersController < BaseController
-  before_action :find_user, except: :index
+  before_action :find_user, except: %i[index]
 
   def index
     @users = User.all

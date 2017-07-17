@@ -8,6 +8,7 @@ require "rspec/rails"
 require "pundit/rspec"
 require "capybara/rspec"
 require "pundit/matchers"
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -66,9 +67,19 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
 
+  # include features Helpers
+  config.include Features, :type => :feature
+  config.include Features::SessionHelpers, type: :feature
+
   # Test devise with capybara
   config.include Warden::Test::Helpers
-end
+  config.before :suite do
+    Warden.test_mode!
+  end
+  config.after :each do
+    Warden.test_reset!
+  end
+  end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
