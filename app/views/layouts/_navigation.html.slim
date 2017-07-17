@@ -15,7 +15,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         -if user_signed_in?
           li
             p.navbar-text
-              =current_user.email
+              =link_to current_user.email, user_path(current_user)
+          li
+              - if policy(:album).create?
+                = link_to "Create album", new_album_path(:album)
           li
             =link_to 'Log out', destroy_user_session_path, method: :delete
         -else

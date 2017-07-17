@@ -1,4 +1,4 @@
-class SongPolicy < ApplicationPolicy
+class AlbumPolicy < ApplicationPolicy
   def new?
     user.artist?
   end
