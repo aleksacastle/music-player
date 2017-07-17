@@ -8,7 +8,6 @@ class AlbumsController < BaseController
 
   def new
     @album = Album.new
-    # authorize @album
   end
 
   def create
@@ -16,7 +15,6 @@ class AlbumsController < BaseController
     authorize @album
 
     if @album.save
-      binding.pry
       redirect_to album_path(Album.last.id),
       notice: "Album was successfully created."
     else
@@ -42,7 +40,7 @@ class AlbumsController < BaseController
       @album = Album.find(params[:id])
     end
     def album_params
-      params.require(:album).permit(:title, :file_cover).merge(user_id: :user_id)
+      params.require(:album).permit(:title, :file_cover).merge(user_id: current_user.id)
     end
 
     def find_user
