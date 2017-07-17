@@ -1,0 +1,10 @@
+.container
+  h1
+    | New playlist
+  .row
+    .col-md-6.col-md-offset-3
+      = form_for(@playlist) do |f|
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+        = f.submit "Create Playlist"
+        = link_to 'Back', playlists_path

@@ -1,6 +1,6 @@
 class PlaylistsController < BaseController
   def index
-    @playlists = current_user.playlist.all
+    @playlists = current_user.playlists.all
   end
 
   def new
@@ -8,9 +8,10 @@ class PlaylistsController < BaseController
   end
 
   def create
-    @playlist = current_user.playlist.new(playlist_params)
+    @playlist = Playlist.new(playlist_params)
+    @playlist.user_id = current_user.id
     if @playlist.save
-      redirect_to @playlist, notice: "Playlist was successfully created."
+      redirect_to playlists_path, notice: "Playlist was successfully created."
     else
       render :new
     end
@@ -31,6 +32,6 @@ class PlaylistsController < BaseController
 
   private
     def playlist_params
-      params.require(:playlist).permit(:title, :file_cover, :user)
+      params.require(:playlist).permit(:title, :file_cover, :user_id)
     end
 end

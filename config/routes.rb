@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users
   resources :songs
   resources :albums
+  resources :playlists
   root "home#index"
 end

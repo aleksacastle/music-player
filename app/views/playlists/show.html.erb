@@ -1,0 +1,11 @@
+
+
+<h2><b> <%= @playlist.title %></b></h2>
+
+<br>
+<%= link_to 'Add song', new_song_path %>
+<br>
+<p><%= link_to 'Listen' %> </p> 
+<p><%= link_to 'Edit', new_playlist_path(playlist) %> || 
+<%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p><%= link_to 'Back', playlists_path %></p>
