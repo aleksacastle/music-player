@@ -1,15 +1,20 @@
 class SongsController < BaseController
-  before_action :find_album, only: %i[index create]
+  before_action :find_album
+
+  def index
+    @songs = current_user.songs.all
+  end
+
   def new
     @song = Song.new
   end
 
   def create
-    # binding.pry
     @song = Song.new(artist_song_params)
     authorize @song
     if @song.save
-      redirect_to album_songs_path(Song.last.id),
+      # binding.pry
+      redirect_to album_songs_path,
       notice: "Song was successfully created."
     else
       redirect_to new_album_song_path
@@ -28,11 +33,11 @@ class SongsController < BaseController
   private
 
     def find_album
-      @album = Album.find(params[:id])
+      @album = Album.find(params[:album_id])
     end
 
     def artist_song_params
-      params.require(:song).permit(:title, :artist, :file).merger(user_id: :current_user.id)
+      params.require(:song).permit(:title, :artist, :file)
     end
 
     def user_song_params
