@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :user
   end
+
   resources :users
   resources :songs
   resources :albums
-  resources :playlists
-  root "home#index"
+
+  resources :playlists do
+    resources :songs
+  end
+  root "base#index"
 end

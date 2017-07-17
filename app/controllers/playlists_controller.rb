@@ -1,10 +1,17 @@
 class PlaylistsController < BaseController
+  before_action :find_playlist, only: %i[show edit update destroy]
+
   def index
     @playlists = current_user.playlists.all
   end
 
   def new
     @playlist = Playlist.new
+  end
+
+  def show
+    # @songs = @playlist.songs.all
+    @songs = Song.all
   end
 
   def create
@@ -31,6 +38,10 @@ class PlaylistsController < BaseController
   end
 
   private
+    def find_playlist
+      @playlist = Playlist.find(params[:id])
+    end
+
     def playlist_params
       params.require(:playlist).permit(:title, :file_cover, :user_id)
     end
