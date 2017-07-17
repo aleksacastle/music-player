@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # == Schema Information
 #
 # Table name: admins
@@ -18,11 +17,30 @@
 #  updated_at             :datetime         not null
 #
 
-require 'rails_helper'
-=======
 require "rails_helper"
->>>>>>> master
 
 RSpec.describe Admin, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:admin) { build(:admin) }
+
+  context "validate admin" do
+    it "email" do
+      admin.email = "admin@example.com"
+      expect(admin.email).to eq("admin@example.com")
+    end
+
+    it "not email" do
+      admin.email = " "
+      expect(admin.email).to_not eq("admin@example.com")
+    end
+
+    it "password" do
+      admin.encrypted_password = "password"
+      expect(admin.encrypted_password).to eq("password")
+    end
+
+    it "not password" do
+      admin.encrypted_password = " "
+      expect(admin.encrypted_password).to_not eq("password")
+    end
+  end
 end
