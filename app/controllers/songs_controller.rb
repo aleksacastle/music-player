@@ -13,8 +13,7 @@ class SongsController < BaseController
     @song = Song.new(artist_song_params)
     authorize @song
     if @song.save
-      # binding.pry
-      redirect_to album_songs_path,
+      redirect_to album_path(@album),
       notice: "Song was successfully created."
     else
       redirect_to new_album_song_path
@@ -22,12 +21,8 @@ class SongsController < BaseController
   end
 
   def destroy
-    @song.destroy
-    if policy.allowed?
-      redirect_to song_url, notice: "Song was successfully destroyed."
-    else
-      redirect_to song_path notice: "Please contact with the owner"
-    end
+    @song.destroy?
+    redirect_to song_url, notice: "Song was successfully destroyed."
   end
 
   private
@@ -40,7 +35,7 @@ class SongsController < BaseController
       params.require(:song).permit(:title, :artist, :file)
     end
 
-    def user_song_params
-      params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
-    end
+    # def user_song_params
+    #   params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
+    # end
 end
