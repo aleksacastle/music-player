@@ -5,6 +5,9 @@ require File.expand_path("../../config/environment", __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
+require "pundit/rspec"
+require "capybara/rspec"
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -58,7 +61,24 @@ RSpec.configure do |config|
   # Shoulda Matchers config
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
-end
+
+  # Devise test helpets
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+
+  # include features Helpers
+  config.include Features, type: :feature
+  config.include Features::SessionHelpers, type: :feature
+
+  # Test devise with capybara
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
+  config.after :each do
+    Warden.test_reset!
+  end
+  end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

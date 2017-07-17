@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # == Schema Information
 #
 # Table name: admins
@@ -18,6 +19,9 @@
 #
 
 require 'rails_helper'
+=======
+require "rails_helper"
+>>>>>>> master
 
 RSpec.describe Admin, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"

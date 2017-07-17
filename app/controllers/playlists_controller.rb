@@ -1,4 +1,4 @@
-class PlaylistsController < ApplicationController
+class PlaylistsController < BaseController
   def index
     @playlists = current_user.playlist.all
   end

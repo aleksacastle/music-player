@@ -2,7 +2,7 @@
 lock "3.8.2"
 
 set :application, "ruby-rogues"
-set :repo_url, "git@gitlab.com:denysmk/ruby-rogues.git"
+set :repo_url, "git@bitbucket.org:rubyrouges/ruby-rouges-rails.git"
 
 # If the environment differs from the stage name
 set :rails_env, "production"
@@ -30,10 +30,10 @@ set :default_stage, "production"
 set :deploy_to, "/var/www/ruby-rogues"
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/config.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 set :ssh_options, forward_agent: true
 

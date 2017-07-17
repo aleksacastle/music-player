@@ -1,4 +1,4 @@
-class AlbumsController < ApplicationController
+class AlbumsController < BaseController
   def new
     @album = Album.new
   end
