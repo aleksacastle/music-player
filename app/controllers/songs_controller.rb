@@ -1,20 +1,18 @@
 class SongsController < BaseController
+  before_action :find_album, only: %i[index create]
   def new
     @song = Song.new
   end
 
   def create
-    @song = Song.new(song_params)
-    if policy.allowed?
-      if @song.save(params[:song].merge(current_user: current_user))
-        redirect_to song_path(Song.last.id),
-        notice: "Song was successfully created."
-      else
-        redirect_to new_song_path
-      end
+    # binding.pry
+    @song = Song.new(artist_song_params)
+    authorize @song
+    if @song.save
+      redirect_to album_songs_path(Song.last.id),
+      notice: "Song was successfully created."
     else
-      redirect_to song_path,
-      alert: "You must be artist to be able to add songs"
+      redirect_to new_album_song_path
     end
   end
 
@@ -29,11 +27,15 @@ class SongsController < BaseController
 
   private
 
-    def song_params
-      params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
+    def find_album
+      @album = Album.find(params[:id])
     end
 
-    def policy
-      Song::CreatePolicy.new(current_user)
+    def artist_song_params
+      params.require(:song).permit(:title, :artist, :file).merger(user_id: :current_user.id)
+    end
+
+    def user_song_params
+      params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
     end
 end

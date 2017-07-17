@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     resources :user
   end
   resources :users
-  resources :songs
-  resources :albums
+
+  resources :albums do
+    resources :songs
+  end
+
   root "home#index"
 end
