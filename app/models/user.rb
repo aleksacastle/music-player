@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
   has_many :playlists
   has_many :songs, through: :playlists
+  has_many :pictures, as: :imageable
 
   enum role: %i[user artist admin]
 
