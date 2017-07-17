@@ -11,6 +11,7 @@ describe SongPolicy do
     it { is_expected.to permit_new_and_create_actions }
     it { is_expected.to permit_action(:show) }
     it { is_expected.to permit_action(:destroy) }
+    it { is_expected.to permit_action(:update) }
   end
 
   context "for user" do
@@ -18,6 +19,7 @@ describe SongPolicy do
 
     it { is_expected.to forbid_new_and_create_actions }
     it { is_expected.to forbid_action(:destroy) }
+    it { is_expected.to forbid_action(:update) }
     it { is_expected.to permit_action(:show) }
   end
 end

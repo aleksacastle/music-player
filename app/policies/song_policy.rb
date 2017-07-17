@@ -11,6 +11,10 @@ class SongPolicy < ApplicationPolicy
     user
   end
 
+  def update?
+    user.artist?
+  end
+
   def destroy?
     user.artist?
   end
