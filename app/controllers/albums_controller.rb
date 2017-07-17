@@ -1,6 +1,6 @@
 class AlbumsController < BaseController
   before_action :find_user, only: %i[:index ]
-  before_action :set_album, only: %i[:show :edit :update :destroy]
+  before_action :set_album, only: %i[show edit update destroy]
 
   def index
     @albums = Album.all
@@ -31,7 +31,6 @@ class AlbumsController < BaseController
   end
 
   def destroy
-
     @album.destroy
     redirect_to albums_url, notice: "Album was successfully destroyed."
   end
@@ -40,6 +39,7 @@ class AlbumsController < BaseController
     def set_album
       @album = Album.find(params[:id])
     end
+
     def album_params
       params.require(:album).permit(:title, :file_cover).merge(user_id: current_user.id)
     end
