@@ -10,8 +10,7 @@ class PlaylistsController < BaseController
   end
 
   def show
-    # @songs = @playlist.songs.all
-    @songs = Song.all
+    @songs = @playlist.songs.all
   end
 
   def create
