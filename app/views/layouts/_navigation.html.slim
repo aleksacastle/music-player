@@ -16,6 +16,12 @@ nav.navbar.navbar-inverse.navbar-fixed-top
           li
             p.navbar-text
               =link_to current_user.email, user_path(current_user)
+<<<<<<< HEAD
+=======
+          li
+              - if policy(:album).create?
+                = link_to "Create album", new_album_path(:album)
+>>>>>>> master
           li
             =link_to 'Log out', destroy_user_session_path, method: :delete
         -else

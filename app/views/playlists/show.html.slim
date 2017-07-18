@@ -1,0 +1,14 @@
+
+h2
+  b= @playlist.title
+
+= link_to 'Add song', new_song_path
+
+p= link_to 'Listen'
+p= link_to 'Edit', new_playlist_path(@playlist)
+= link_to 'Destroy', playlist_path(@playlist), method: :delete, data: { confirm: 'Are you sure?' }
+p= link_to 'Back', playlists_path
+
+h2 Songs
+-@songs.each do |song|
+    =song.title

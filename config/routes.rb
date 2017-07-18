@@ -4,10 +4,30 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users, controllers: { registrations: "registrations" }
 
+<<<<<<< HEAD
+=======
+  namespace :admin do
+    resources :user
+  end
+
+>>>>>>> master
   resources :users
-  resources :songs
-  resources :user
+
+  resources :albums do
+    resources :songs
+  end
+
+  resources :playlists do
+    member do
+      post "add_song"
+    end
+  end
+
   resources :songs
   resources :albums
-  root "home#index"
+
+  # resources :playlists do
+  #   resources :songs
+  # end
+  root "base#index"
 end
