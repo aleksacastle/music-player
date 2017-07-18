@@ -5,8 +5,24 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :user
   end
+
   resources :users
+
+  resources :albums do
+    resources :songs
+  end
+
+  resources :playlists do
+    member do
+      post "add_song"
+    end
+  end
+
   resources :songs
   resources :albums
-  root "home#index"
+
+  # resources :playlists do
+  #   resources :songs
+  # end
+  root "base#index"
 end
