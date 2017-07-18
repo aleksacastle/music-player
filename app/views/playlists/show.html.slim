@@ -1,6 +1,7 @@
 
 h2
   b= @playlist.title
+  = image_tag @playlist.picture.file
 
 = link_to 'Add song', new_song_path
 
