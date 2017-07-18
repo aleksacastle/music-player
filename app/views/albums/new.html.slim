@@ -7,6 +7,6 @@
         = f.label :title
         = f.text_field :title, class: 'form-control'
         = f.fields_for :picture_attributes do |p|
-          = picture.file_field :file
+          = p.file_field :file
         = f.submit "Create Album"
         = link_to 'Back', albums_path
