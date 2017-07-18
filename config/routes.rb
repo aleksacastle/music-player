@@ -6,7 +6,16 @@ Rails.application.routes.draw do
     resources :user
   end
   resources :users
-  resources :songs
-  resources :albums
+
+  resources :albums do
+    resources :songs
+  end
+
+  resources :playlist do
+    member do
+      post "add_song"
+    end
+  end
+
   root "home#index"
 end
