@@ -13,5 +13,4 @@
 //= require jquery
 //= require rails-ujs
 //= require bootstrap-sprockets
-//= require soundmanager2
 //= require_tree .
