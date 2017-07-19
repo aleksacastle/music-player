@@ -10,6 +10,10 @@ class AlbumsController < BaseController
     @album = Album.new
   end
 
+  def show
+    @album_songs = @album.songs
+  end
+
   def create
     @album = Album.new(album_params)
     authorize @album
