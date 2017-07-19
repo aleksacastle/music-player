@@ -56,6 +56,7 @@ group :development do
   gem "pry-rails"
   gem "pry-rescue"
   gem "awesome_print", require: "ap"
+  gem "rails-erd", require: false
 
   # deploy stuff
   gem "capistrano", "~> 3.6"

@@ -42,6 +42,6 @@ class PlaylistsController < BaseController
     end
 
     def playlist_params
-      params.require(:playlist).permit(:title, :file_cover, :user_id)
+      params.require(:playlist).permit(:title, :user_id, picture_attributes: [:id, :imageable_id, :imageable_type, :file, :name])
     end
 end
