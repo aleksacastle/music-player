@@ -2,7 +2,11 @@ class SongsController < BaseController
   before_action :find_album
 
   def index
-    @songs = current_user.songs.all
+    if current_user.artist?
+      @songs = current_user.songs.all
+    else
+      @songs = Song.all
+    end
   end
 
   def new

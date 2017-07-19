@@ -41,7 +41,7 @@ class AlbumsController < BaseController
     end
 
     def album_params
-      params.require(:album).permit(:title, :file_cover).merge(user_id: current_user.id)
+      params.require(:album).permit(:title, picture_attributes: [:id, :imageable_id, :imageable_type, :file, :name]).merge(user_id: current_user.id)
     end
 
     def find_user

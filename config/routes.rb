@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   resources :playlists do
     member do
-      post "add_song"
+      get  "add_song", to: 'playlist_songs#new'
+      post "add_song", to: 'playlist_songs#create'
     end
   end
 
