@@ -22,6 +22,9 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+
+  let(:user) {FactoryGirl.create(:user)}
+
   it { is_expected.to define_enum_for(:role).with(%i[user artist admin]) }
   it { is_expected.to have_db_column(:email) }
   it { is_expected.to have_db_column(:first_name) }
@@ -32,4 +35,11 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_many(:songs) }
   it { is_expected.to have_db_column(:avatar) }
 
+  it 'should be able to update info' do
+    user.update(email: 'test@test.test', nick_name: 'Nick', first_name: 'First', last_name: 'Last')
+    expect(user.email).to include('test@test.test')
+    expect(user.nick_name).to include('Nick')
+    expect(user.first_name).to include('First')
+    expect(user.last_name).to include('Last')
+  end
 end
