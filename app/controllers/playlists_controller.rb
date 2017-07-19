@@ -10,8 +10,7 @@ class PlaylistsController < BaseController
   end
 
   def show
-    # @songs = @playlist.songs.all
-    @songs = Song.all
+    @songs = @playlist.songs.all
   end
 
   def create
@@ -43,6 +42,6 @@ class PlaylistsController < BaseController
     end
 
     def playlist_params
-      params.require(:playlist).permit(:title, :file_cover, :user_id)
+      params.require(:playlist).permit(:title, :user_id, picture_attributes: [:id, :imageable_id, :imageable_type, :file, :name])
     end
 end

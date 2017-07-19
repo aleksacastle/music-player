@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :admins
   devise_for :users, controllers: { registrations: "registrations" }
-
-  namespace :admin do
-    resources :user
-  end
 
   resources :users
 
@@ -14,7 +12,8 @@ Rails.application.routes.draw do
 
   resources :playlists do
     member do
-      post "add_song"
+      get  "add_song", to: 'playlist_songs#new'
+      post "add_song", to: 'playlist_songs#create'
     end
   end
 

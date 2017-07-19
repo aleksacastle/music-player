@@ -9,6 +9,7 @@ if Rails.env.test?
 
   # make sure our uploader is auto-loaded
   SongUploader
+  PictureUploader
 
   # Separate out the upload folders for test environment.
   CarrierWave::Uploader::Base.descendants.each do |klass|

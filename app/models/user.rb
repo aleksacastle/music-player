@@ -1,6 +1,7 @@
 # == Schema Information
 #
 # Table name: users
+#
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -13,7 +14,11 @@
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
 #  role                   :integer
-#  nick_name  :string
+#  avatar                 :string
+#  first_name             :string
+#  last_name              :string
+#  nick_name              :string
+#
 
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
@@ -25,6 +30,7 @@ class User < ApplicationRecord
 
   has_many :playlists
   has_many :songs, through: :playlists
+  has_many :pictures, as: :imageable
 
   enum role: %i[user artist admin]
 

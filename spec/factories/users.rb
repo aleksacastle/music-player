@@ -14,6 +14,10 @@
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
 #  role                   :integer
+#  avatar                 :string
+#  first_name             :string
+#  last_name              :string
+#  nick_name              :string
 #
 
 FactoryGirl.define do

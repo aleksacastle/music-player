@@ -67,9 +67,15 @@ RSpec.configure do |config|
     config.include Devise::Test::ControllerHelpers, type: :controller
     config.include Devise::Test::ControllerHelpers, type: :view
 
+<<<<<<< HEAD
+  # include features Helpers
+  config.include Features, type: :feature
+  config.include Features::SessionHelpers, type: :feature
+=======
     # include features Helpers
     config.include Features, type: :feature
     config.include Features::SessionHelpers, type: :feature
+>>>>>>> master
 
     # Test devise with capybara
     config.include Warden::Test::Helpers

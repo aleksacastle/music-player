@@ -5,6 +5,7 @@
 
 <p>
   <strong>Artist:</strong>
+  <%= image_tag @album.picture.file %>
 </p>
 <br>
 <%= link_to 'Add song', new_album_song_path(@album, @song) %>

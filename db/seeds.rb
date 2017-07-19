@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 20.times { |x| Genre.create!(title: "genre-#{x + 1}") }
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

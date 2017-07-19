@@ -13,10 +13,11 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
-#  nick_name  :string
-#  role       :integer          default("user")
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  role                   :integer
+#  avatar                 :string
+#  first_name             :string
+#  last_name              :string
+#  nick_name              :string
 #
 
 require "rails_helper"

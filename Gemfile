@@ -28,12 +28,16 @@ gem "simple_form"
 gem "slim-rails"
 gem "carrierwave", "~> 1.0"
 gem "mini_magick"
+gem "rmagick"
 gem "file_validators"
 gem "html2slim", "~> 0.2.0"
 
 ######Authorizacion and Authentication######
 gem "devise"
 gem "pundit"
+
+#####Admin######
+gem "activeadmin"
 
 group :development do
   gem "web-console", ">= 3.3.0"
@@ -56,6 +60,7 @@ group :development do
   gem "pry-rails"
   gem "pry-rescue"
   gem "awesome_print", require: "ap"
+  gem "rails-erd", require: false
 
   # deploy stuff
   gem "capistrano", "~> 3.6"

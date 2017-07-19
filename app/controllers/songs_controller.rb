@@ -2,7 +2,11 @@ class SongsController < BaseController
   before_action :find_album
 
   def index
-    @songs = current_user.songs.all
+    if current_user.artist?
+      @songs = current_user.songs.all
+    else
+      @songs = Song.all
+    end
   end
 
   def new
@@ -35,7 +39,7 @@ class SongsController < BaseController
       params.require(:song).permit(:title, :artist, :file)
     end
 
-    # def user_song_params
-    #   params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
-    # end
+  # def user_song_params
+  #   params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
+  # end
 end
