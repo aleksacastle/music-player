@@ -14,7 +14,7 @@ class SongsController < BaseController
   end
 
   def create
-    @song = Song.new(artist_song_params)
+    @song = @album.songs.new(artist_song_params)
     authorize @song
     if @song.save
       redirect_to album_path(@album),
