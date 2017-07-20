@@ -5,9 +5,14 @@
 
 <p>
   <strong>Artist:</strong>
-  <%= image_tag @album.picture.file %>
+  <%= image_tag @album.picture.file, class: "img-thumbnail", width: "100px" %>
+  <br />
   <% @album_songs.each do |s| %>
-  <%= s.file.url %>
+    <audio id="<%=s.id %>" controls>
+      <source src="<%= s.file.url %>"></source>
+    </audio>
+    <!-- <%= s.file.url %> -->
+
   <% end %>
 </p>
 <br>
