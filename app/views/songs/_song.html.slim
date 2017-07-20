@@ -1,5 +1,8 @@
+h2 Songs
 td= song.id
 td= song.title
 td= song.artist
 td
-  = render 'songs/actions', song_id: song.id
+  -@songs.each do |song|
+    =song.title
+      = render 'songs/actions', song_id: song.id
