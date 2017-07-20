@@ -11,6 +11,7 @@ describe 'Artist' do
     click_on 'Sign Up'
     expect(page).to have_content('Welcome! You have signed up successfully.')
     click_on 'Log out'
+    expect(User.first.role).to eq('artist')
     expect(current_path).to eq('/users/sign_in')
   end
 
@@ -28,7 +29,7 @@ describe 'Artist' do
     expect(page).to have_content('Album was successfully created.')
   end
 
-  it 'is able to add new song at album' do
+  it 'is able to add new song to album' do
     artist = FactoryGirl.create(:user,role: 1)
     album = FactoryGirl.create(:album, user_id: artist.id)
     visit '/users/sign_in'
