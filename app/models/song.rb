@@ -21,8 +21,10 @@ class Song < ApplicationRecord
   belongs_to :album, optional: true
 
   validates :title, :artist, presence: true
-  # file to add file validation later with uploader
-  # validates :file, file_size: { less_than: 10.megabytes },
-  validates :file,
-  file_content_type: { allow: ["audio/mpeg", "audio/mpeg3", "audio/midi", "audio/mp3"] }
+
+  validates :file, file_size: { less_than: 100.megabytes,
+            message: 'not more than %{size} are allowed'},
+            file_content_type: { allow: ["audio/mpeg", "audio/mpeg3", "audio/midi",
+               "audio/mp3"],
+             message: 'only %{types} are allowed' }
 end

@@ -21,6 +21,7 @@ class SongsController < BaseController
       notice: "Song was successfully created."
     else
       redirect_to new_album_song_path
+      flash[:error] = @song.errors.full_messages
     end
   end
 
@@ -38,8 +39,4 @@ class SongsController < BaseController
     def artist_song_params
       params.require(:song).permit(:title, :artist, :file)
     end
-
-  # def user_song_params
-  #   params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
-  # end
 end
