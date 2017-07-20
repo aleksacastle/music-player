@@ -6,6 +6,9 @@
 <p>
   <strong>Artist:</strong>
   <%= image_tag @album.picture.file %>
+  <% @album_songs.each do |s| %>
+  <%= s.file.url %>
+  <% end %>
 </p>
 <br>
 <%= link_to 'Add song', new_album_song_path(@album, @song) %>
