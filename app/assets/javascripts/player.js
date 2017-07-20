@@ -1,9 +1,11 @@
 soundManager.setup({
-  url: "",
+  flashVersion: 8
+
   onready: function() {
     var mySound = soundManager.createSound({
       id: "aSound",
-      url: "path/to/a.mp3"
+      url: "/1/mysong.mp3",
+      autoLoad: true
     });
 
     mySound.play();
