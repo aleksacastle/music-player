@@ -17,5 +17,5 @@ class Album < ApplicationRecord
   has_one :picture, as: :imageable
   accepts_nested_attributes_for :picture
 
-  # validates :title, presence: true
+  validates :title, :file_cover, presence: true
 end
