@@ -24,8 +24,8 @@ h2
     -@songs.each do |song|
       =song.title
       br
-      audio controls="" id=("<%= s.id %>") 
-        source src=("<%= s.file.url %>")
+      audio controls="" id="#{song.id}" 
+        source src="#{song.file.url}"
 
 .row
   .col-md-3
