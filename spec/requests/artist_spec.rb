@@ -1,10 +1,8 @@
 require 'rails_helper'
-require 'pry'
 
 describe 'Artist' do
 
   it 'has been created with relevant role' do
-    binding.pry
     visit '/users/sign_up'
     fill_in 'Email', with: 'admin@auto.ua'
     fill_in 'Password', with: 'admin@auto.ua'
@@ -23,22 +21,26 @@ describe 'Artist' do
     fill_in 'Password', with: artist.password
     click_button 'Log in'
     visit albums_path
-    click_on 'Add new playlist'
+    click_on 'Create album'
     fill_in 'Title', with: 'album-test'
-    click_on 'Create'
-    expect(page).to have_content('album-test')
+    page.attach_file('album_picture_attributes_file', Rails.root + 'public/uploads/picture/file/1/mypic.jpg')
+    click_button 'Create Album'
+    expect(page).to have_content('Album was successfully created.')
   end
 
-  it 'is not logged in'
+  it 'is able to add new song at album' do
     artist = FactoryGirl.create(:user,role: 1)
-    album = FactoryGirl.create(:album)
+    album = FactoryGirl.create(:album, user_id: artist.id)
     visit '/users/sign_in'
     fill_in 'Email', with: artist.email
     fill_in 'Password', with: artist.password
     click_button 'Log in'
-    click_button 'Add new song'
-    fill_in 'Title', with: 'song-test'
-    click_on 'Create'
-    expect(page).to have_content('song-test')
+    visit albums_path
+    click_link 'Show'
+    click_link 'Add song'
+    fill_in 'Artist', with: 'artist-test'
+    fill_in 'Title', with: 'title-test'
+    click_on 'Create Song'
+    expect(page).to have_content('Song was successfully created.')
   end
 end
