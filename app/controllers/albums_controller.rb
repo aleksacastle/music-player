@@ -23,6 +23,7 @@ class AlbumsController < BaseController
       notice: "Album was successfully created."
     else
       render :new
+      flash[:error] = @album.errors.full_messages
     end
   end
 
@@ -31,6 +32,7 @@ class AlbumsController < BaseController
       redirect_to @album, notice: "Album was successfully updated."
     else
       render :edit
+      flash[:error] = @album.errors.full_messages
     end
   end
 
