@@ -1,6 +1,12 @@
 h2
   b= @playlist.title
-  = image_tag @playlist.picture.file
+  
+  = image_tag @playlist.picture.file, class: "img-thumbnail", width: "100px"
+  
+  / -@songs.each do |song|
+  /   =song.title
+  /   audio id=song.id controls
+  /     source src=song.file
 
 .row.btn-group
   .col-md-3
@@ -16,7 +22,10 @@ h2
   .col-md-12
     h2 Songs
     -@songs.each do |song|
-        =song.title
+      =song.title
+      br
+      audio controls="" id="#{song.id}" 
+        source src="#{song.file.url}"
 
 .row
   .col-md-3
