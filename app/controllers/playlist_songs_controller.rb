@@ -14,25 +14,25 @@ class PlaylistSongsController < BaseController
 
   private
 
-  def set_playlist
-    @playlist ||= Playlist.find(params[:id])
-  end
+    def set_playlist
+      @playlist ||= Playlist.find(params[:id])
+    end
 
-  def get_songs(ids)
-    Song.where(id: ids)
-  end
+    def get_songs(ids)
+      Song.where(id: ids)
+    end
 
-  def playlist_songs_ids
-    @playlist_songs_ids ||= @playlist.songs.pluck(:id)
-  end
+    def playlist_songs_ids
+      @playlist_songs_ids ||= @playlist.songs.pluck(:id)
+    end
 
-  def new_songs_ids
-    params[:songs] - playlist_songs_ids if params[:songs]
-  end
+    def new_songs_ids
+      params[:songs] - playlist_songs_ids if params[:songs]
+    end
 
-  def useless_songs_ids
-    return playlist_songs_ids if params[:songs].blank?
+    def useless_songs_ids
+      return playlist_songs_ids if params[:songs].blank?
 
-    playlist_songs_ids - params[:songs]
-  end
+      playlist_songs_ids - params[:songs]
+    end
 end
