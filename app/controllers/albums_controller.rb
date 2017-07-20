@@ -23,6 +23,7 @@ class AlbumsController < BaseController
       notice: "Album was successfully created."
     else
       render :new
+      flash[:error] = @song.errors.full_messages
     end
   end
 
