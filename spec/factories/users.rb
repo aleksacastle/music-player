@@ -24,6 +24,6 @@ FactoryGirl.define do
   factory :user do
     email Faker::Internet.email
     password Faker::Internet.password(8)
-    role 1
+    role 0
   end
 end

@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 describe 'User' do
 
@@ -28,7 +27,5 @@ describe 'User' do
     visit playlists_path
     expect(current_path).to eq('/users/sign_in')
     expect(page).to have_content('You need to sign in or sign up before continuing.')
-
   end
-
-  end
+end
