@@ -85,3 +85,5 @@ pickle-email-*.html
 
 .ruby-gemset
 .ruby-version
+
+/public/uploads/*

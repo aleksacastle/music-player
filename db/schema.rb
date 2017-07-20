@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20170719152442) do
     t.inet "last_sign_in_ip"
     t.integer "role"
     t.string "avatar"
+    t.text "auth_meta_data"
     t.string "first_name"
     t.string "last_name"
     t.string "nick_name"
