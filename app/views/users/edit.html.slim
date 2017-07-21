@@ -1,8 +1,8 @@
 .container
-  h1
-    | Update your profile
   .row
     .col-md-6.col-md-offset-3
+      h1
+        | Update your profile
       = form_for(@user) do |f|
         = f.label :first_name
         = f.text_field :first_name, class: 'form-control'
