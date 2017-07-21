@@ -15,9 +15,11 @@ class AlbumsController < BaseController
   end
 
   def create
+    #form object
     @album = Album.new(album_params)
     authorize @album
-
+    # replace code bellow with service object
+    # don't forget about policy
     if @album.save
       redirect_to album_path(Album.last.id),
       notice: "Album was successfully created."
@@ -28,6 +30,8 @@ class AlbumsController < BaseController
   end
 
   def update
+    #form object
+    #service object
     if @album.update(album_params)
       redirect_to @album, notice: "Album was successfully updated."
     else
@@ -37,6 +41,7 @@ class AlbumsController < BaseController
   end
 
   def destroy
+    #service object
     @album.destroy
     redirect_to albums_url, notice: "Album was successfully destroyed."
   end
