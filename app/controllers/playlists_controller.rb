@@ -14,8 +14,10 @@ class PlaylistsController < BaseController
   end
 
   def create
+    # form object
     @playlist = Playlist.new(playlist_params)
     @playlist.user_id = current_user.id
+    # service object
     if @playlist.save
       redirect_to playlists_path, notice: "Playlist was successfully created."
     else
@@ -25,6 +27,8 @@ class PlaylistsController < BaseController
   end
 
   def update
+    # form object
+    # service_object
     if @playlist.update(playlist_params)
       redirect_to @playlist, notice: "Playlist was successfully updated."
     else
@@ -34,6 +38,7 @@ class PlaylistsController < BaseController
   end
 
   def destroy
+    # service object
     @playlist.destroy
     redirect_to playlists_url, notice: "Playlist was successfully destroyed."
   end
