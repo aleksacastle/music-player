@@ -18,6 +18,6 @@
 <%= link_to 'Add song', new_album_song_path(@album, @song) %>
 <br>
 <td><%= link_to 'Listen' %> </td> |
-<%= link_to 'Edit' %>   |
-<%= link_to 'Delete' %> |
+<%= link_to 'Edit', edit_album_path(album) %>   |
+<%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', albums_path %>
