@@ -17,5 +17,5 @@ class Album < ApplicationRecord
   has_one :picture, as: :imageable
   accepts_nested_attributes_for :picture
 
-  validates :title, :file_cover, presence: true # move to the form object using ActiveRecord::Model
+  validates :title, presence: true # move to the form object using ActiveRecord::Model
 end
