@@ -3,10 +3,13 @@
     | New album
   .row
     .col-md-6.col-md-offset-3
-      = form_for(@album) do |f|
-        = f.label :title
-        = f.text_field :title, class: 'form-control'
-        = f.fields_for :picture_attributes do |p|
-          = p.file_field :file
-        = f.submit "Create Album"
-        = link_to 'Back', albums_path
+      = simple_form_for @album do |f|
+          = f.input :title, class: 'form-control'
+          = f.fields_for :picture_attributes do |p|
+            = p.file_field :file, class: "form-control"
+          br
+          .pull-left
+            => f.button :submit, class:"btn btn-warning"
+            => link_to 'Delete',@album, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger'
+          .pull-right
+            => link_to 'My Albums', albums_path, class:'btn btn-primary'

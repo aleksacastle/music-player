@@ -12,6 +12,8 @@ class AlbumsController < BaseController
 
   def show
     @album_songs = @album.songs
+    #костильчегг
+    @album_artist = @album_songs.map(&:artist).first
   end
 
   def create
