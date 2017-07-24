@@ -35,6 +35,8 @@ gem "html2slim", "~> 0.2.0"
 ######Authorizacion and Authentication######
 gem "devise"
 gem "pundit"
+gem "omniauth"
+gem "omniauth-facebook"
 
 #####Admin######
 gem "activeadmin"

@@ -26,3 +26,7 @@
             .btn-group role="group" aria-label="button-group"
               =f.button :submit, 'Sign Up', class: "btn btn-primary"
               = link_to 'Log in', new_user_session_path, type: "button", class: "btn btn-success"
+
+          .form-group
+            .btn-group role="group" aria-label="button-group" 
+              = link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, type: "button", class: "btn btn-success"
