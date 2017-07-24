@@ -2,19 +2,12 @@
   h1
     | Edit Album:
     b
-      =< @album.title
+      = @album.title
   = simple_form_for @album do |f|
     = f.input :title, class: 'form-control'
     = f.fields_for :picture_attributes do |p|
       = p.file_field :file, class: "form-control"
     br
-    - @album.songs.each do |s|
-      ul.list-group
-        li.list-group-item
-          = s.title
-          span.pull-right
-            button.btn.btn-xs.btn-warning
-              span.glyphicon.glyphicon-trash
     br
     .pull-left
       => f.button :submit, class:"btn btn-warning"
@@ -22,4 +15,12 @@
     .pull-right
       => link_to 'Back', album_path(@album), class:'btn btn-info'
       => link_to 'My Albums', albums_path, class:'btn btn-primary'
-
+hr
+.container
+  - @album.songs.each do |s|
+    ul.list-group
+      li.list-group-item
+        b
+          = s.title
+        span.pull-right
+          = link_to '', album_song_path(@album, s), data: { confirm: 'Are you sure?' }, :method => :delete, class:'btn btn-xs btn-warning glyphicon glyphicon-trash'

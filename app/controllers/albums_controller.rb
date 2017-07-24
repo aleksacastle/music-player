@@ -1,5 +1,5 @@
 class AlbumsController < BaseController
-  before_action :find_user, only: %i[:index ]
+  before_action :find_user, only: %i[index]
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
