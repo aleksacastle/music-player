@@ -1,3 +1,5 @@
+h2 Songs
 = simple_form_for :playlist, url: add_song_playlist_path do |f|
   = render 'songs/list', songs: @songs
+  p
   = f.button :submit, 'Add song'
