@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  pundit:
+    default: 'You cannot perform this action.'
+    song_policy:
+      update?: 'You cannot edit this songs!'
+      create?: 'You cannot create songs!'
+      destroy?: 'You cannot delete songs!'

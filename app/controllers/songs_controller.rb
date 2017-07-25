@@ -1,5 +1,9 @@
 class SongsController < BaseController
   before_action :find_album
+  before_action :find_song, only: %i[destroy]
+
+  def show
+  end
 
   def index
     # service object
@@ -31,14 +35,20 @@ class SongsController < BaseController
 
   def destroy
     # service object
-    @song.destroy?
-    redirect_to song_url, notice: "Song was successfully destroyed."
+    authorize @song
+    @song.destroy
+    # need this in edit album
+    redirect_to edit_album_path(@album), notice: "Song was successfully destroyed."
   end
 
   private
 
     def find_album
       @album = Album.find(params[:album_id])
+    end
+
+    def find_song
+      @song = Song.find(params[:id])
     end
 
     def artist_song_params
