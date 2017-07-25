@@ -40,16 +40,30 @@ class User < ApplicationRecord
   validates_integrity_of  :avatar
   validates_processing_of :avatar
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.nick_name = auth.info.name
-      user.first_name = auth.info.first_name
-      user.last_name = auth.info.last_name
-      user.avatar = auth.info.image
-    end
-  end
+  def self.from_omniauth_google(access_token)
+    data = access_token.info
+    user = User.where(email: data['email']).first
+
+    # Uncomment the section below if you want users to be created if they don't exist
+    # unless user
+    #     user = User.create(name: data['name'],
+    #        email: data['email'],
+    #        password: Devise.friendly_token[0,20]
+    #     )
+    # end
+    user
+end
+
+  # def self.from_omniauth(auth)
+  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+  #     user.email = auth.info.email
+  #     user.password = Devise.friendly_token[0, 20]
+  #     user.nick_name = auth.info.name
+  #     user.first_name = auth.info.first_name
+  #     user.last_name = auth.info.last_name
+  #     user.avatar = auth.info.image
+  #   end
+  # end
 
   def self.new_with_session(params, session)
     super.tap do |user|
