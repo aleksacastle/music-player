@@ -37,6 +37,8 @@ gem "devise"
 gem "pundit"
 gem "omniauth"
 gem "omniauth-facebook"
+gem 'omniauth-google-oauth2'
+
 
 #####Admin######
 gem "activeadmin"
