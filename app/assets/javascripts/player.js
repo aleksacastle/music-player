@@ -1,5 +1,5 @@
 soundManager.setup({
-  flashVersion: 8
+  flashVersion: 8,
 
   onready: function() {
     var mySound = soundManager.createSound({

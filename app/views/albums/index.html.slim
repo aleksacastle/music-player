@@ -1,0 +1,20 @@
+h1
+  | Listing Album
+table
+  thead
+    tr
+      th[width="100"]
+        | Title
+  tbody
+    - @albums.each do |album|
+      tr
+        td
+          = album.title
+        td
+          = link_to 'Show', album
+          |  || 
+        td
+          = link_to 'Edit', edit_album_path(album)
+          |  || 
+        td
+          = link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }

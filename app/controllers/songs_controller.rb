@@ -2,6 +2,8 @@ class SongsController < BaseController
   before_action :find_album
 
   def index
+    # service object
+    # policy object
     if current_user.artist?
       @songs = current_user.songs.all
     else
@@ -15,16 +17,20 @@ class SongsController < BaseController
 
   def create
     @song = @album.songs.new(artist_song_params)
+    # form object
+    # service object
     authorize @song
     if @song.save
       redirect_to album_path(@album),
       notice: "Song was successfully created."
     else
       redirect_to new_album_song_path
+      flash[:error] = @song.errors.full_messages
     end
   end
 
   def destroy
+    # service object
     @song.destroy?
     redirect_to song_url, notice: "Song was successfully destroyed."
   end
@@ -38,8 +44,4 @@ class SongsController < BaseController
     def artist_song_params
       params.require(:song).permit(:title, :artist, :file)
     end
-
-  # def user_song_params
-  #   params.require(:song).permit(:title, :artist, :file, :playlist_ids [], genre_ids: [])
-  # end
 end

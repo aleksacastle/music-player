@@ -1,0 +1,14 @@
+= form_for [@album, @song] do |f|
+  .field
+    = f.label :artist
+    br
+    = f.text_field :artist
+  .field
+    = f.label :title
+    br
+    = f.text_field :title
+  .field
+    = f.label :attachment
+    = f.file_field :file
+  .actions
+    = f.submit
