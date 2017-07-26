@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Artist' do
 
   it 'has been created with relevant role' do
+    require 'pry'; binding.pry
     visit '/users/sign_up'
     fill_in 'Email', with: 'admin@auto.ua'
     fill_in 'Password', with: 'admin@auto.ua'
@@ -29,14 +30,14 @@ describe 'Artist' do
     expect(page).to have_content('Album was successfully created.')
   end
 
-  it 'is able to add new song to album' do
+  it 'is able to add new song to playlist' do
     artist = FactoryGirl.create(:user,role: 1)
-    album = FactoryGirl.create(:album, user_id: artist.id)
+    playlist = FactoryGirl.create(:playlist, user_id: artist.id)
     visit '/users/sign_in'
     fill_in 'Email', with: artist.email
     fill_in 'Password', with: artist.password
     click_button 'Log in'
-    visit albums_path
+    visit '/playlists'
     click_link 'Show'
     click_link 'Add song'
     fill_in 'Artist', with: 'artist-test'
