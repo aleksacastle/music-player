@@ -1,0 +1,8 @@
+= form_for(@album) do |f|
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+  = f.fields_for :picture_attributes do |p|
+    = p.file_field :file
+  .actions
+    = f.submit
+

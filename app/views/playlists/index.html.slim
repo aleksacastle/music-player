@@ -1,0 +1,24 @@
+h1
+  | Playlists
+table
+  thead
+    tr
+      td[colspan="3"]
+        p
+          | Here are your playlists.
+  tbody
+    table
+      - current_user.playlists.each do |playlist|
+        tr
+          td
+            h2
+              = playlist.title
+          td
+            = link_to 'Show', playlist
+            |  || 
+          td
+            = link_to 'Edit', edit_playlist_path(playlist)
+            |  || 
+          td
+            = link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' }
+    = link_to 'Add new playlist', new_playlist_path

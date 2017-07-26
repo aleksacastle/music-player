@@ -1,16 +1,46 @@
-<h1>Album</h1>
-<p>
-  <strong>Title:</strong>
-</p>
+<div class="container">
+<div class="row">
+  <div class="col-lg-5">
+    <div class="media">
+      <a class="pull-left">
+      <%= image_tag @album.picture.file, class: "img-thumbnail", width: "100px" %>
+      </a>
+        <div class="media-body">
+          <h4 class="media-heading"><b><%= @album.title %></b></h4>
+          <h5><i class="glyphicon glyphicon-user"></i>&nbsp;<%= @album_artist %>&nbsp;•
+          <i class="glyphicon glyphicon-music"></i>&nbsp;<%= @album_songs.count %>&nbsp;songs</h5>
+          <hr style="margin:10px auto">
+        </div>
+      <div class="pull-left">
+      <%= link_to 'Add song', new_album_song_path(@album, @song), class:'btn btn-success' %>
+      <%= link_to 'Edit', edit_album_path(@album), class:'btn btn-warning' %>
+      <%= link_to 'Delete',@album, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+      </div>
+      <div class="pull-right">
+       <%= link_to 'Back', albums_path, class:'btn btn-info' %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="panel panel-default">
+  <ul class="list-group", id="playlist">
+    <% @album_songs.each do |s| %>
+    <li class="list-group-item">
+      <a href="<%= s.file.url %>">
+      <i class="glyphicon glyphicon-play-circle"></i>
+      <%= s.title %>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+  <div class="panel-footer panel-custom">
+    <audio id="audio" preload="auto" tabindex="0" controls="" >
+    <source src="">
+    </audio>
+  </div>
+</div>
+</div>
 
-<p>
-  <strong>Artist:</strong>
-  <%= image_tag @album.picture.file %>
-</p>
-<br>
-<%= link_to 'Add song', new_album_song_path(@album, @song) %>
-<br>
-<td><%= link_to 'Listen' %> </td> |
-<%= link_to 'Edit' %>   |
-<%= link_to 'Delete' %> |
-<%= link_to 'Back', albums_path %>
+
+

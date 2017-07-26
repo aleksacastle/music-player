@@ -1,6 +1,26 @@
-h1
-  | Editing Album
-= render 'form', album: @album
-= link_to 'Show', @album
-|  | 
-= link_to 'Back', albums_path
+.container
+  h1
+    | Edit Album:
+    b
+      = @album.title
+  = simple_form_for @album do |f|
+    = f.input :title, class: 'form-control'
+    = f.fields_for :picture_attributes do |p|
+      = p.file_field :file, class: "form-control"
+    br
+    br
+    .pull-left
+      => f.button :submit, class:"btn btn-warning"
+      => link_to 'Delete',@album, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger'
+    .pull-right
+      => link_to 'Back', album_path(@album), class:'btn btn-info'
+      => link_to 'My Albums', albums_path, class:'btn btn-primary'
+hr
+.container
+  - @album.songs.each do |s|
+    ul.list-group
+      li.list-group-item
+        b
+          = s.title
+        span.pull-right
+          = link_to '', album_song_path(@album, s), data: { confirm: 'Are you sure?' }, :method => :delete, class:'btn btn-xs btn-warning glyphicon glyphicon-trash'

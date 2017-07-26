@@ -1,4 +1,17 @@
-require 'rails_helper'
+# == Schema Information
+#
+# Table name: pictures
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  imageable_id   :integer
+#  imageable_type :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  file           :string
+#
+
+require "rails_helper"
 
 RSpec.describe Picture, type: :model do
   it { is_expected.to have_db_column(:name) }

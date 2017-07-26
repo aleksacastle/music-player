@@ -31,10 +31,14 @@ gem "mini_magick"
 gem "rmagick"
 gem "file_validators"
 gem "html2slim", "~> 0.2.0"
+gem "plyr-rails"
 
 ######Authorizacion and Authentication######
 gem "devise"
 gem "pundit"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 
 #####Admin######
 gem "activeadmin"
