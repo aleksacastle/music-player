@@ -1,5 +1,5 @@
 class AlbumsController < BaseController
-  before_action :find_user, only: %i[:index ]
+  before_action :find_user, only: %i[:index]
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
@@ -12,6 +12,8 @@ class AlbumsController < BaseController
 
   def show
     @album_songs = @album.songs
+    #костильчегг
+    @album_artist = @album_songs.map(&:artist).first
   end
 
   def create
