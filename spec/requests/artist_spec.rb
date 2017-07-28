@@ -3,7 +3,6 @@ require 'rails_helper'
 describe 'Artist' do
 
   it 'has been created with relevant role' do
-    require 'pry'; binding.pry
     visit '/users/sign_up'
     fill_in 'Email', with: 'admin@auto.ua'
     fill_in 'Password', with: 'admin@auto.ua'
