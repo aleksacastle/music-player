@@ -1,1 +1,14 @@
-| h1 | Editing Playlist = render 'form', playlist: @playlist = link_to 'Show', @playlist | | = link_to 'Back', playlists_path 
+h1
+  | Editing Playlist
+div
+  = simple_form_for(@playlist) do |f|
+    .form-group
+      = f.input :title, input_html: {class: 'form-control'}
+      = f.fields_for :picture_attributes do |p|
+        = p.file_field :file
+    .form-group
+      .btn-group role="group" aria-label="actions"
+        = f.submit "Edit", class: "btn btn-primary"
+        = link_to 'Back', playlists_path, type: "button", class: "btn btn-success"
+  = link_to 'Show', @playlist
+  = link_to 'Back', playlists_path
