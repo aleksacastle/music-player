@@ -42,7 +42,7 @@ class SongsController < BaseController
   end
 
   def search
-    @songs = Song.where(["name LIKE ?", "%#{params[:search]}%"])
+    @songs = Song.where(["title LIKE ?", "%#{params[:search]}%"])
   end
 
   private
