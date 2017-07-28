@@ -9,12 +9,6 @@ describe UsersController, type: :controller do
     expect(response.status).to eq(200)
   end
 
-  it 'POST create' do
-    post :create, params: {playlist: {title: 'test_playlist'}}
-    expect(response.status).to eq(302)
-    expect(Playlist.first.title).to eq('test_playlist')
-  end
-  
   it 'PUT update' do
     put :update, params: {id: subject.current_user.id, user: {email: 'test@test.com'}}
     user = subject.current_user.reload
