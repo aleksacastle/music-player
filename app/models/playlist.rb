@@ -18,4 +18,5 @@ class Playlist < ApplicationRecord
   accepts_nested_attributes_for :picture
 
   validates :title, presence: true
+  validates :picture, presence: true
 end

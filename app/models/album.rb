@@ -18,4 +18,5 @@ class Album < ApplicationRecord
   accepts_nested_attributes_for :picture
 
   validates :title, presence: true # move to the form object using ActiveRecord::Model
+  validates :picture, presence: true
 end
