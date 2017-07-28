@@ -1,0 +1,7 @@
+<%= form_tag search_songs_path, :method => "get" do%>
+<%=text_field_tag :search, params[:search] %>
+<%= submit_tag "Search Song" %>
+
+<% end %>
+
+<%=link_to "Advanced search" %>
