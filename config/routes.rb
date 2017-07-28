@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     member do
       get  "add_song", to: "playlist_songs#new"
       post "add_song", to: "playlist_songs#create"
-      get "search", to: "playlist_songs#search"
     end
   end
 

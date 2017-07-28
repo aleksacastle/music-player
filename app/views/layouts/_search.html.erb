@@ -1,5 +1,5 @@
-<%= form_tag search_playlist_path, :method => "get" do%>
-<%=text_field_tag :search, params[:search] %>
+<%= form_tag add_song_playlist_path, :method => "get" do%>
+<%= text_field_tag :search, params[:search] %>
 <%= submit_tag "Search Song" %>
 
 <% end %>
