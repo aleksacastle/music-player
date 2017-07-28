@@ -1,5 +1,5 @@
 class SongsController < BaseController
-  before_action :find_album, except: :search
+  before_action :find_album
   before_action :find_song, only: %i[destroy]
 
   def show
@@ -39,10 +39,6 @@ class SongsController < BaseController
     @song.destroy
     # need this in edit album
     redirect_to edit_album_path(@album), notice: "Song was successfully destroyed."
-  end
-
-  def search
-    @songs = Song.where(["title LIKE ?", "%#{params[:search]}%"])
   end
 
   private

@@ -1,8 +1,0 @@
-.row
-  .col-md-12
-    h2 Songs
-    -@songs.each do |song|
-      =song.title
-      br
-      audio controls="" id="#{song.id}"
-        source src="#{song.file.url}"

@@ -1,5 +1,9 @@
 class PlaylistSongsController < BaseController
-  before_action :set_playlist, only: %i[create new]
+  before_action :set_playlist, only: %i[create new search]
+
+  def search
+    @songs = Song.where(["title LIKE ?", "%#{params[:search]}%"])
+  end
 
   def new
     @songs = Song.all
@@ -17,7 +21,7 @@ class PlaylistSongsController < BaseController
     def set_playlist
       @playlist ||= Playlist.find(params[:id])
     end
-    
+
     def playlist_params
       params.require(:playlist).permit(song_ids: [])
     end
