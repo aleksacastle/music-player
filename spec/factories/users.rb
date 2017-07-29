@@ -18,6 +18,8 @@
 #  first_name             :string
 #  last_name              :string
 #  nick_name              :string
+#  provider               :string
+#  uid                    :string
 #
 
 FactoryGirl.define do

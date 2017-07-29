@@ -6,8 +6,8 @@
       .col-sm-6.col-md-4
         .thumbnail
           -if playlist.picture.present?
-            =image_tag playlist.picture.file
-          .caption
+            =image_tag playlist.picture.file, class: "img-playlist"
+          .caption.caption-playlist
             h3= playlist.title
             h5 Tracks:
             
