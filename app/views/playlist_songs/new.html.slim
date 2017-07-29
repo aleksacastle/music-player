@@ -1,5 +1,6 @@
 h2 Songs
+= render "layouts/search"
 = simple_form_for @playlist, url: add_song_playlist_path, method: :post do |f|
-  = f.association :songs, as: :check_boxes
+  = f.association :songs, as: :check_boxes, collection: Song.all.pluck(:title, :id)
   p
   = f.button :submit, 'Add song'

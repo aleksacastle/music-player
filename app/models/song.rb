@@ -18,7 +18,7 @@ class Song < ApplicationRecord
 
   has_and_belongs_to_many :genres, optional: true
   has_and_belongs_to_many :playlist
-  belongs_to :album
+  belongs_to :album, optional: true
   # move validations to the form object
   validates :title, :artist, :file, presence: true
 
