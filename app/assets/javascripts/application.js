@@ -15,4 +15,4 @@
 //= require bootstrap-sprockets
 //= require plyr
 //= require player
-
+//= require base
