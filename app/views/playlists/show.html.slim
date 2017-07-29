@@ -1,32 +1,21 @@
-h2
-  b= @playlist.title
-  
-  = image_tag @playlist.picture.file, class: "img-thumbnail", width: "100px"
-  
-  / -@songs.each do |song|
-  /   =song.title
-  /   audio id=song.id controls
-  /     source src=song.file
+.media
+  .media-left
+    =image_tag @playlist.picture.file, class: "img-thumbnail media-object", width: "200px"
+  .media-body
+    h2.media-heading=@playlist.title
+    hr
+    .btn-group role="group" aria-label="action"
+      = link_to 'Add songs', add_song_playlist_path(@playlist), type: "button", class: "btn btn-primary"
+      = link_to "Back", playlists_path, type: "button", class: "btn btn-success"
+br
 
-.row.btn-group
-  .col-md-3
-    = link_to 'Add songs', add_song_playlist_path(@playlist), class: 'btn btn-default'
-  .col-md-3
-    = link_to 'Listen', '#', class: 'btn btn-default'
-  .col-md-3
-    = link_to 'Edit', edit_playlist_path(@playlist), class: 'btn btn-default'
-  .col-md-3
-    = link_to 'Destroy', playlist_path(@playlist), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
-
-.row
-  .col-md-12
-    h2 Songs
+.panel.panel-default
+  ul.list-group id="playlist"
     -@songs.each do |song|
-      =song.title
-      br
-      audio controls="" id="#{song.id}" 
-        source src="#{song.file.url}"
-
-.row
-  .col-md-3
-    = link_to 'Back', playlists_path, class: 'btn btn-default'
+      li.list-group-item
+        a href="#{song.file.url}"
+          i.glyphicon.glyphicon-play-circle &nbsp;
+          =song.title
+  .panel-footer.panel-custom
+    audio id="audio" preload="auto" tabindex="0" controls=" "
+      source src=""
