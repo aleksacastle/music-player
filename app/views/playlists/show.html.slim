@@ -1,6 +1,7 @@
 .media
   .media-left
-    =image_tag @playlist.picture.file, class: "img-thumbnail media-object", width: "200px"
+    -if @playlist.picture.present?
+      =image_tag @playlist.picture.file, class: "img-thumbnail media-object", width: "200px"
   .media-body
     h2.media-heading=@playlist.title
     hr
