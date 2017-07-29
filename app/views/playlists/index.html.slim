@@ -34,10 +34,17 @@
             =image_tag playlist.picture.file
             .caption
               h3= playlist.title
-              h5 Musics:
-              -playlist.songs.each do |song|
-                span.glyphicon.glyphicon-music
-                =song.title
+              h5 Tracks:
+              -if playlist.songs.count <= 5
+                -playlist.songs.take(5).each do |song|
+                  span.glyphicon.glyphicon-music &nbsp;
+                  =song.title
+                  br
+              -else
+                -playlist.songs.each do |song|
+                  span.glyphicon.glyphicon-music &nbsp;
+                  =song.title
+            
             .btn-group role="group" aria-label="action"
               =link_to "Show", playlist, type: "button", class: "btn btn-success"
               =link_to "Edit", edit_playlist_path(playlist), type: "button", class: "btn btn-warning"
