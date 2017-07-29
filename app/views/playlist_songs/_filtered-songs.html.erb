@@ -1,0 +1,13 @@
+<label class="control-label check_boxes optional">Songs</label>
+<input name="playlist[song_ids][]" value="" type="hidden">
+<% songs.each do |song| %>
+  <%= content_tag(:span, class: "checkbox") do %>
+    <%= content_tag(:label, for: "playlist_song_ids_#{song.id}") do %>
+      <%= content_tag(:input, nil, {class: "check_boxes optional",
+                      value: song.id,
+                      checked: playlist_song_ids.include?(song.id) ? "checked" : nil,
+                      name: "playlist[song_ids][]", id: "playlist_song_ids_#{song.id}", type: "checkbox" } ) %>
+      <%= song.title %>
+    <% end %>
+  <% end %>
+<% end %>
