@@ -45,7 +45,6 @@
   left: 300px;
 }
 
-
 .profile{
 background-image: url(/assets/1511.jpg);
 }
@@ -57,4 +56,18 @@ color: white;
 
 .modal{
 background-image: url(/assets/1511.jpg);
+
+// Playlist
+.pad {
+  margin: 0 0 25px 15px;
+}
+
+.img-playlist {
+  width: 401px !important;
+  height: 225px !important;
+}
+
+.caption-playlist {
+  width: 400px !important;
+  height: 220px !important;
 }

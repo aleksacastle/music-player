@@ -1,1 +1,5 @@
-| h1 | Editing Playlist = render 'form', playlist: @playlist = link_to 'Show', @playlist | | = link_to 'Back', playlists_path 
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      h2 Edit #{@playlist.title} playlist 
+      =render "form"
