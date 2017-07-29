@@ -5,7 +5,8 @@
     - current_user.playlists.each do |playlist|
       .col-sm-6.col-md-4
         .thumbnail
-          =image_tag playlist.picture.file
+          -if playlist.picture.present?
+            =image_tag playlist.picture.file
           .caption
             h3= playlist.title
             h5 Tracks:
