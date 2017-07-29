@@ -1,59 +1,41 @@
+<div class="row">
 <div data-spy="affix" id="dot-nav">
       <ul>
-        <li class="awesome-tooltip active" title="Home"><a href="#home"></a></li>
-        <li class="awesome-tooltip" title="About"><a href="#about"></a></li>
-        <li class="awesome-tooltip" title="Projects"><a href="#projects"></a></li>
-        <li class="awesome-tooltip" title="Contact"><a href="#contact"></a></li>
+        <li class="awesome-tooltip active" title="1"><a href="#home"></a></li>
+        <li class="awesome-tooltip" title="2"><a href="#about"></a></li>
+        <li class="awesome-tooltip" title="3"><a href="#projects"></a></li>
       </ul>
   </div>
-    
-    <div id="main" class="container">
+    <div id="main" >
       <section id="home">
-           <article>
-               <div class="row">
-                   <div class="col-md-12">
-                    <h1>Home Section <small>Secondary text</small></h1>
-                       <p>
-                        This is a content.                                
-                       </p>
-                   </div>
-               </div>
-           </article>           
+      <div class="container">
+          <h1>Fresh albums<small> newly added albums</small></h1>
+            <div class="row-album">
+            <% @new_albums.each do |album| %>
+              <%= link_to image_tag(album.picture.file, class: "img-rounded img-album ", width: "180px"), album_path(album) %>
+            <% end %>
+          </div>
+        </div>
       </section>
         <section id="about">
-           <article>
-               <div class="row">
-                   <div class="col-md-12">
-                    <h1>About Section <small>Secondary text</small></h1>
-                       <p>
-                        This is a content.                                
-                       </p>
-                   </div>
-               </div>
-           </article>           
+        <div class="container">
+          <h1>My playlists<small>beloved music here</small></h1>
+            <div class="row-album">
+            <% @playlists.each do |playlist| %>
+              <%= link_to image_tag(playlist.picture.file, class: "img-rounded img-album ", width: "180px"), playlist_path(playlist) %>
+            <% end %>
+        </div>
+        </div>
         </section>
         <section id="projects">
-           <article>
-               <div class="row">
-                   <div class="col-md-12">
-                    <h1>Projects Section <small>Secondary text</small></h1>
-                       <p>
-                        This is a content.                                
-                       </p>
-                   </div>
-               </div>
-           </article>           
+        <div class="container">
+          <h1>All albums<small> greatest music </small></h1>
+            <div class="row-album">
+            <% @albums.each do |album| %>
+              <%= link_to image_tag(album.picture.file, class: "img-rounded img-album ", width: "180px"), album_path(album) %>
+            <% end %>
+        </div>
+        </div>
         </section>
-        <section id="contact">
-           <article>
-               <div class="row">
-                   <div class="col-md-12">
-                    <h1>Contact Section <small>Secondary text</small></h1>
-                       <p>
-                        This is a content.                                
-                       </p>
-                   </div>
-               </div>
-           </article>           
-        </section>        
     </div>
+</div>
