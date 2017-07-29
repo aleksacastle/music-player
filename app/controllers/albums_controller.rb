@@ -3,7 +3,7 @@ class AlbumsController < BaseController
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
-    @albums = current_user.albums
+    @albums = Album.all
   end
 
   def new

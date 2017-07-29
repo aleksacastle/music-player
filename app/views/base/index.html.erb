@@ -19,7 +19,7 @@
       </section>
         <section id="about">
         <div class="container">
-          <h1>My playlists<small>beloved music here</small></h1>
+          <h1>My playlists<small> beloved music here </small><%= link_to "", new_playlist_path(:playlist), class:"glyphicon glyphicon-plus-sign" %><%= link_to "", playlists_path, class:"glyphicon glyphicon-list-alt" %></h1>
             <div class="row-album">
             <% @playlists.each do |playlist| %>
               <%= link_to image_tag(playlist.picture.file, class: "img-rounded img-album ", width: "180px"), playlist_path(playlist) %>
@@ -29,7 +29,7 @@
         </section>
         <section id="projects">
         <div class="container">
-          <h1>All albums<small> greatest music </small></h1>
+          <h1>All albums<small> greatest music </small><%= link_to "", albums_path, class:"glyphicon glyphicon-folder-open" %></h1>
             <div class="row-album">
             <% @albums.each do |album| %>
               <%= link_to image_tag(album.picture.file, class: "img-rounded img-album ", width: "180px"), album_path(album) %>
