@@ -71,21 +71,21 @@ section {
 }
 
 #home {
-  background-image: url(/assets/1511.jpg);
+  background-image: image-url("1511.jpg");
   background-size: cover;
   background-repeat:   no-repeat;
   background-position: center center;
  }
 
 #about {
-  background-image: url(/assets/789.jpg);
+  background-image: image-url("789.jpg");
   background-size: cover;
   background-repeat:   no-repeat;
   background-position: center center;
 }
 
 #projects {
-  background-image: url(/assets/2828.jpg);
+  background-image: image-url("2828.jpg");
   ackground-size: cover;
   background-repeat:   no-repeat;
   background-position: center center;
