@@ -1,3 +1,94 @@
 // Place all the styles related to the base controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    background: #f0f0f0;
+}
+ body, html {
+    height: 100%;
+}
+
+#main {
+    height: 100%;
+    margin-top: -75px;
+
+}
+section {
+    padding: 13% 0;
+	height: 100%;
+	color: white;
+	text-shadow: black 0.1em 0.1em 0.2em
+}
+#dot-nav{
+	right: 10px;
+	top: 50%;
+	margin-top: -50px;
+	height: 100px;
+	z-index: 999;
+}
+
+#dot-nav ul {
+	list-style: none;
+	margin:0;
+	padding: 0;
+}
+#dot-nav li {
+	position: relative;
+	background-color: #bdc3c7;
+	border:3px solid #bdc3c7;
+	border-radius: 15px 15px 15px 15px;
+	cursor: pointer;
+	padding: 5px;
+	height: 10px;
+	margin: 10px 10px 0px 0px;
+	width: 10px;
+	vertical-align:bottom;
+}
+#dot-nav li.active, #dot-nav li:hover {
+	background-color: #8e44ad;
+}
+
+#dot-nav a {
+	outline: 0;
+	vertical-align:top;
+	margin: 0px 0px 0px 25px;
+	position: relative;
+	top:-5px;
+}
+.awesome-tooltip + .tooltip > .tooltip-inner {
+    background-color: #8e44ad;
+    color: #f5f5f5;
+    border: 1px solid #8e44ad;
+}
+.awesome-tooltip + .tooltip.left > .tooltip-arrow{
+    top:50%;
+    right:0;
+    margin-top:-5px;
+    border-top:5px solid transparent;
+    border-bottom:5px solid transparent;
+    border-left:5px solid #8e44ad;
+}
+
+#home {
+  background-image: url(/assets/1511.jpg);
+  background-size: cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+ }
+
+#about {
+  background-image: url(/assets/789.jpg);
+  background-size: cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+#projects {
+  background-image: url(/assets/2828.jpg);
+  ackground-size: cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+.glyphicon {color: white;}

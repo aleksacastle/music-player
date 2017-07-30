@@ -4,7 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  title      :string
-#  file_cover :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
@@ -18,4 +17,5 @@ class Album < ApplicationRecord
   accepts_nested_attributes_for :picture
 
   validates :title, presence: true # move to the form object using ActiveRecord::Model
+  validates :picture, presence: true
 end

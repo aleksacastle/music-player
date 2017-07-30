@@ -32,6 +32,7 @@ gem "rmagick"
 gem "file_validators"
 gem "html2slim", "~> 0.2.0"
 gem "plyr-rails"
+gem "selectize-rails"
 
 ######Authorizacion and Authentication######
 gem "devise"

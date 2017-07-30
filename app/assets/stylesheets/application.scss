@@ -13,7 +13,9 @@
  *= require_self
  *= require main
  *= require plyr
+ *= require base
+ *= require selectize
+ *= require selectize.default
  */
 @import "bootstrap-sprockets";
 @import "bootstrap"
-

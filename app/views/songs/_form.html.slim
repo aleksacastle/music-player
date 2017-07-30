@@ -1,14 +1,26 @@
-= form_for [@album, @song] do |f|
-  .field
-    = f.label :artist
-    br
-    = f.text_field :artist
-  .field
-    = f.label :title
-    br
-    = f.text_field :title
-  .field
-    = f.label :attachment
-    = f.file_field :file
-  .actions
-    = f.submit
+/ = form_for [@album, @song] do |f|
+/   .field
+/     = f.label :artist
+/     br
+/     = f.text_field :artist
+/   .field
+/     = f.label :title
+/     br
+/     = f.text_field :title
+/   .field
+/     = f.label :attachment
+/     = f.file_field :file
+/   .actions
+/     = f.submit
+
+=simple_form_for [@album, @song] do |f|
+  .form-group
+    =f.input :artist, label: false, placeholder: "Artist", input_html: { class: "form-control" }
+  .form-group
+    =f.input :title, label: false, placeholder: "Title", input_html: { class: "form-control" }
+  .form-group
+    =f.input :file, label: "Add song file", as: :file
+  .form-group
+    .btn-group role="group" aria-label="action"
+      =f.submit class: "btn btn-primary"
+      =link_to "Back", album_path(@album.id), type: "button", class: "btn btn-success"

@@ -36,11 +36,39 @@ body { padding-top: 75px; }
     transform: scale(2, 2);
     transition-duration: 0.3s;
     -webkit-transition-duration: 0.3s; /* Safari */
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 10px 10px 5px black;
     z-index: 1;
 }
 
 .facebook {
   position: relative;
   left: 300px;
+}
+
+.profile{
+background-image: url(/assets/1511.jpg);
+}
+
+.edit{
+background-image: url(/assets/1511.jpg);
+color: white;
+}
+
+.modal{
+background-image: url(/assets/1511.jpg);
+}
+
+// Playlist
+.pad {
+  margin: 0 0 25px 15px;
+}
+
+.img-playlist {
+  width: 401px !important;
+  height: 225px !important;
+}
+
+.caption-playlist {
+  width: 400px !important;
+  height: 220px !important;
 }

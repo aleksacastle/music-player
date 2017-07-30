@@ -14,5 +14,5 @@
 //= require rails-ujs
 //= require bootstrap-sprockets
 //= require plyr
+//= require base
 //= require player
-
