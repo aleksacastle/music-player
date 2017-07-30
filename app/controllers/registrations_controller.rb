@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def role
       return { role: ARTIST_ROLE } if params.fetch(:user, {})
-        .fetch(:artist, USER_ROLE) == ARTIST_ROLE.to_s
+              .fetch(:artist, USER_ROLE) == ARTIST_ROLE.to_s
       { role: USER_ROLE }
     end
 end
