@@ -13,5 +13,6 @@ FactoryGirl.define do
   factory :album do
     title Faker::Music.chord
     file_cover Faker::Avatar.image
+    picture
   end
 end
