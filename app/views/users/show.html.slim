@@ -1,20 +1,15 @@
 .container
-  center
-    h1
-      | My Profile
-  p
-    | Email: 
-    = @user.email
-  p
-    | Nickname: 
-    = @user.nick_name
-  p
-    | Firstname: 
-    = @user.first_name
-  p
-    | Lastname: 
-    = @user.last_name
-  - if current_user.avatar.url.present?
-    p
-      = image_tag(current_user.avatar.url)
-  = link_to "Edit Info",  edit_user_path, class: "btn btn-primary"
+  .span.well.profile
+    center
+      a data-target="#myModal" data-toggle="modal" href="#aboutModal" = image_tag current_user.avatar.url, width:"140", height:"140", class: "img-circle"
+      h3
+        font color="white"
+          b
+            - if @user.full_name.present?
+              = @user.full_name
+            - else
+              = @user.email
+  /! Modal
+  = render "modal"
+
+
