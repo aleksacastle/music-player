@@ -1,9 +1,9 @@
 module RequestsHelper
 
-  def manual_sign_in(artist)
+  def manual_sign_in(user)
     visit '/users/sign_in'
-    fill_in 'Email', with: artist.email
-    fill_in 'Password', with: artist.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Log in'
   end
 
@@ -32,5 +32,5 @@ module RequestsHelper
     fill_in 'Title', with: 'title-test'
     click_on 'Create Song'
   end
-end
 
+end
