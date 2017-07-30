@@ -14,6 +14,12 @@ class BaseController < ApplicationController
     end
   end
 
+  def index
+    @new_albums = Album.order(created_at: :desc).limit(6)
+    @albums = Album.all.limit(6)
+    @playlists = Playlist.where(user_id: current_user.id).limit(6)
+  end
+
   protected
 
     def configure_permitted_parameters

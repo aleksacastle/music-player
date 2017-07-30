@@ -1,0 +1,43 @@
+#myModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"
+        h4#myModalLabel.modal-title
+          | More About #{@user.first_name}
+      .modal-body
+        center
+          = image_tag current_user.avatar.url, width:"140", height:"140", class: "img-circle"
+          h3.media-heading
+            = @user.full_name
+            small
+              =< @user.role
+          span
+            strong Beloved genres:
+          span.label.label-info>< Genre 1
+          span.label.label-info>< Genre 2
+          span.label.label-info>< Genre 3
+        hr/
+        center
+          p.text-left
+            strong Mama calls you:
+            br/
+          p
+          .well.well-sm= @user.first_name
+          p.text-left
+            strong Send spam to:
+          p
+          .well.well-sm= @user.email
+          p.text-left
+            strong For friends:
+          p
+          .well.well-sm= @user.nick_name
+          p.text-left
+            strong Last visit:
+          p
+          .well.well-sm= @user.last_sign_in_at
+          br/
+      .modal-footer
+        center
+          = link_to "Edit", edit_user_path, class:"btn btn-warning", data_dismiss:"modal"
+          = link_to "Home", root_path, class:"btn btn-info", data_dismiss:"modal"

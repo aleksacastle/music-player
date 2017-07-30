@@ -52,6 +52,10 @@ class User < ApplicationRecord
     end
   end
 
+  def full_name
+    ([first_name, last_name] - ['']).compact.join(' ')                         
+  end
+
   def albums
     return [] unless artist?
     Album.where(user_id: id)

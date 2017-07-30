@@ -1,4 +1,5 @@
 .container
   .row-album
     - @albums.each do |album|
-      =link_to image_tag(album.picture.file, class: "img-rounded img-album ", width: "140px"), album_path(album)
+      -if album.picture.present?
+        =link_to image_tag(album.picture.file, class: "img-rounded img-album ", width: "140px"), album_path(album)
