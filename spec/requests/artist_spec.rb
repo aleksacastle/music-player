@@ -18,10 +18,11 @@ describe 'Artist' do
     expect(page).to have_content('Album was successfully created.')
   end
 
-  scenario 'is able to add new song to playlist' do
+  scenario 'is able to add new song to album' do
     user = FactoryGirl.create(:user,role: 1)
-    playlist = FactoryGirl.create(:playlist, user_id: user.id)
     manual_sign_in(user)
+    create_album
+    album = Album.first
     create_song
     expect(page).to have_content('Song was successfully created.')
   end

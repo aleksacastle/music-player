@@ -25,11 +25,12 @@ module RequestsHelper
   end
 
   def create_song
-    visit '/playlists'
-    click_link 'Show'
+    visit '/albums'
+    page.find(:xpath, '/html/body/div/div/div/a[1]').click
     click_link 'Add song'
     fill_in 'Artist', with: 'artist-test'
     fill_in 'Title', with: 'title-test'
+    page.attach_file('song_file', Rails.root + 'public/uploads/song/file/1/mysong.mp3')
     click_on 'Create Song'
   end
 

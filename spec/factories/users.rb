@@ -27,5 +27,7 @@ FactoryGirl.define do
     email Faker::Internet.email
     password Faker::Internet.password(8)
     role 0
+    first_name 'TestFirstName'
+    last_name 'TestLastName'
   end
 end

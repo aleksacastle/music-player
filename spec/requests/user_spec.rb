@@ -13,8 +13,7 @@ describe 'User' do
   scenario 'is logged in' do
     user = FactoryGirl.create(:user)
     manual_sign_in(user)
-    visit playlists_path
-    expect(page).to have_content('Add new playlist')
+    expect(page).to have_content('Signed in successfully.')
   end
 
   scenario 'is not logged in' do
