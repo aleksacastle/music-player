@@ -12,16 +12,12 @@ class AlbumsController < BaseController
 
   def show
     @album_songs = @album.songs
-    #костильчегг
     @album_artist = @album_songs.map(&:artist).first
   end
 
   def create
-    #form object
     @album = Album.new(album_params)
     authorize @album
-    # replace code bellow with service object
-    # don't forget about policy
     if @album.save
       redirect_to album_path(Album.last.id),
       notice: "Album was successfully created."
@@ -32,8 +28,6 @@ class AlbumsController < BaseController
   end
 
   def update
-    #form object
-    #service object
     if @album.update(album_params)
       redirect_to @album, notice: "Album was successfully updated."
     else
@@ -43,7 +37,6 @@ class AlbumsController < BaseController
   end
 
   def destroy
-    #service object
     @album.destroy
     redirect_to albums_url, notice: "Album was successfully destroyed."
   end
@@ -54,7 +47,9 @@ class AlbumsController < BaseController
     end
 
     def album_params
-      params.require(:album).permit(:title, picture_attributes: [:id, :imageable_id, :imageable_type, :file, :name]).merge(user_id: current_user.id)
+      params.require(:album).permit(:title, picture_attributes:
+      [:id, :imageable_id, :imageable_type, :file, :name])
+      .merge(user_id: current_user.id)
     end
 
     def find_user

@@ -6,7 +6,6 @@ class UsersController < BaseController
   end
 
   def update
-    # service object
     if @user.update_attributes(user_params)
       flash[:success] = "Info updated"
       redirect_to user_path(current_user)
