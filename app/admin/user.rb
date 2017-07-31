@@ -16,9 +16,6 @@ ActiveAdmin.register User do
 
   index do
     id_column
-    column :avatar do |img|
-      image_tag img.avatar.url(:thumb) if img.avatar.url.present?
-    end
     column :email
     column :first_name
     column :last_name
