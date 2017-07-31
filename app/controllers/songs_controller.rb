@@ -29,7 +29,7 @@ class SongsController < BaseController
       notice: "Song was successfully created."
     else
       redirect_to new_album_song_path
-      flash[:error] = @song.errors.full_messages
+      flash[:error] = @song.errors.full_messages.to_sentence.to_s
     end
   end
 
