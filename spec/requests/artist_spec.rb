@@ -2,6 +2,7 @@ require 'rails_helper'
 include RequestsHelper
 
 describe 'Artist' do
+  let(:artist) { FactoryGirl.create(:user, role: 1) }
 
   scenario 'has been created with relevant role' do
     manual_sign_up
@@ -12,20 +13,17 @@ describe 'Artist' do
   end
 
   scenario 'is able to create new album' do
-    user = FactoryGirl.create(:user,role: 1)
-    manual_sign_in(user)
+    manual_sign_in(artist)
     create_album
     expect(page).to have_content('Album was successfully created.')
   end
 
   scenario 'is able to add new song to album' do
-    user = FactoryGirl.create(:user,role: 1)
-    manual_sign_in(user)
+    manual_sign_in(artist)
     create_album
     album = Album.first
     create_song
     expect(page).to have_content('Song was successfully created.')
   end
-
 end
 
