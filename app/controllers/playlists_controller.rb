@@ -20,7 +20,7 @@ class PlaylistsController < BaseController
       redirect_to playlists_path, notice: "Playlist was successfully created."
     else
       render :new
-      flash[:error] = @playlist.errors.full_messages
+      flash[:error] = @playlist.errors.full_messages.to_sentence.to_s
     end
   end
 
@@ -29,7 +29,7 @@ class PlaylistsController < BaseController
       redirect_to @playlist, notice: "Playlist was successfully updated."
     else
       render :edit
-      flash[:error] = @playlist.errors
+      flash[:error] = @playlist.errors.full_messages.to_sentence.to_s
     end
   end
 
