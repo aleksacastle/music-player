@@ -25,6 +25,5 @@ describe 'Artist' do
     create_song
     expect(page).to have_content('Song was successfully created.')
   end
-
 end
 
