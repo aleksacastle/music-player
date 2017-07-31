@@ -12,6 +12,7 @@ class UsersController < BaseController
       redirect_to user_path(current_user)
     else
       render "edit"
+      flash[:error] = @user.errors.full_messages.to_sentence.to_s
     end
   end
 
