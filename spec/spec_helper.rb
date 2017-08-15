@@ -14,10 +14,17 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|
+
+    # wrap RSpec in a bullet wrapper to catch and log N+1 queries
+    if Bullet.enable?
+      config.before(:each) { Bullet.start_request }
+      config.after(:each)  { Bullet.end_request }
+    end
 
     # delete test files after each test
     config.after(:each) do

@@ -2,11 +2,12 @@ class PlaylistSongsController < BaseController
   before_action :set_playlist, only: %i[create new]
 
   def new
-    songs = if params[:search]
+    songs =
+    if params[:search]
       Song.where(["title LIKE ?", "%#{params[:search]}%"])
      else
        Song.all
-     end
+    end
     respond_to do |format|
        format.html
        format.js do
