@@ -509,6 +509,7 @@ GEM
       railties (>= 3.1)
       slim (~> 3.0)
     slop (3.6.0)
+    solano (1.31.7)
     spoon (0.0.6)
       ffi
     spring (2.0.2)
