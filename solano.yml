@@ -1,0 +1,61 @@
+system:
+  debug:
+    execsrv: true
+  disable_openat: false
+  scheduler: 'RSwap'
+ruby_version: "ruby-2.4.1"
+timeout_hook: 900
+bundler_version: "1.16.1"
+golang:
+  golang_version: 1.8.1
+java:
+  java_version: 'java-6-openjdk'
+nodejs:
+  version: '9.8.0'
+redis:
+  version: "2.6.16"
+postgresql:
+  version: "9.1"
+tool_config:
+  git:
+    version: "2.9.5"
+coverage:
+  version: 2
+  enabled: true
+hooks:
+  pre_setup: |
+    set -e
+    env
+    bundle show rails
+    mkdir -p $HOME/bin
+    ln -fs $HOME/.yarn/bin/yarn $HOME/bin/yarn
+    npm install
+    bundle exec rake assets:precompile
+  worker_setup: bundle exec rake tddium:db_hook
+cache:
+  key_paths:
+    - Gemfile
+    - Gemfile.lock
+    - package.json
+  save_paths:
+    - HOME/bundle
+    - HOME/.gem
+    - REPO/node_modules
+firefox:
+  version: '54.0.1'
+phantomjs:
+  version: '2.1.1'
+plan:
+  - default
+profiles:
+  system:
+    test_pattern:
+      - spec/system/**_spec.rb
+  default:
+    coverage:
+      version: 2
+      enabled: true
+      ratchet: 60
+    test_pattern:
+      - spec/**_spec.rb
+
