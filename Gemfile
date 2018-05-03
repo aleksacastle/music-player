@@ -34,6 +34,7 @@ gem "html2slim", "~> 0.2.0"
 gem "plyr-rails"
 gem "selectize-rails"
 gem "bullet"
+gem 'solano', '~> 1.31', '>= 1.31.7'
 
 ######Authorizacion and Authentication######
 gem "devise"
